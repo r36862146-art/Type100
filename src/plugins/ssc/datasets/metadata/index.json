@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-07-19",
+  "datasets": {
+    "ssc_cgl": {
+      "en": { "passageCount": 5, "avgWordCount": 250, "difficulty": "medium" },
+      "hi": { "passageCount": 5, "avgWordCount": 220, "difficulty": "medium" }
+    },
+    "ssc_chsl": {
+      "en": { "passageCount": 5, "avgWordCount": 220, "difficulty": "medium" },
+      "hi": { "passageCount": 5, "avgWordCount": 200, "difficulty": "medium" }
+    }
+  }
+}

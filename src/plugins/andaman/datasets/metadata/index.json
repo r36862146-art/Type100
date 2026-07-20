@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-19",
+  "datasets": {
+    "andaman_chsl": {
+      "en": { "passageCount": 5, "avgWordCount": 210, "difficulty": "medium" },
+      "hi": { "passageCount": 5, "avgWordCount": 165, "difficulty": "medium" }
+    },
+    "andaman_mts": {
+      "en": { "passageCount": 5, "avgWordCount": 200, "difficulty": "easy" }
+    }
+  }
+}

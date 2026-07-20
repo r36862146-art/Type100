@@ -1,0 +1,17 @@
+{
+  "easy": [
+    "the", "be", "of", "and", "a", "to", "in", "he", "have", "it",
+    "that", "for", "they", "I", "with", "as", "not", "on", "she", "at",
+    "by", "this", "we", "you", "do", "but", "from", "or", "which", "one"
+  ],
+  "medium": [
+    "would", "there", "make", "when", "about", "other", "their", "people",
+    "some", "could", "these", "because", "think", "which", "first",
+    "water", "right", "where", "sound", "number", "those", "often"
+  ],
+  "hard": [
+    "knowledge", "experience", "development", "understand", "information",
+    "important", "difference", "especially", "government", "technology",
+    "community", "available", "necessary", "performance", "environment"
+  ]
+}

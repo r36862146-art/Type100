@@ -1,0 +1,27 @@
+{
+  "general": [
+    { "text": "The quick brown fox jumps over the lazy dog.", "length": "short" },
+    { "text": "A journey of a thousand miles begins with a single step. It is important to stay focused and consistent in whatever you do.", "length": "medium" },
+    { "text": "In a village far away, the people lived in harmony with nature. They celebrated the changing of the seasons and shared their harvests with one another, creating a bond that lasted for generations.", "length": "long" }
+  ],
+  "technology": [
+    { "text": "Artificial intelligence is transforming our world rapidly.", "length": "short" },
+    { "text": "Software engineering requires a solid understanding of algorithms, data structures, and the ability to solve complex problems efficiently.", "length": "medium" },
+    { "text": "Cloud computing allows developers to deploy scalable applications without managing physical infrastructure. This shift has revolutionized how businesses operate, enabling faster delivery and global reach.", "length": "long" }
+  ],
+  "education": [
+    { "text": "Learning is a lifelong process that never stops.", "length": "short" },
+    { "text": "Reading books broadens the mind and provides different perspectives on life, history, and science, enriching our understanding of the world.", "length": "medium" },
+    { "text": "A good education system fosters creativity, critical thinking, and empathy. It empowers individuals to contribute meaningfully to society and adapt to an ever-changing environment.", "length": "long" }
+  ],
+  "government_exams": [
+    { "text": "Consistency and dedication are key to clearing competitive exams.", "length": "short" },
+    { "text": "Time management during an examination can make a significant difference. Candidates should allocate their time wisely across all sections.", "length": "medium" },
+    { "text": "The syllabus for the civil services examination covers a wide range of topics including history, geography, polity, and current affairs. Thorough preparation and regular mock tests are essential for success.", "length": "long" }
+  ],
+  "daily_life": [
+    { "text": "Waking up early gives you a head start on the day.", "length": "short" },
+    { "text": "A healthy diet and regular exercise are fundamental to maintaining a balanced lifestyle and reducing stress in our busy lives.", "length": "medium" },
+    { "text": "Spending quality time with family and friends helps build strong relationships. It provides a support system that is crucial for our emotional well-being and overall happiness.", "length": "long" }
+  ]
+}

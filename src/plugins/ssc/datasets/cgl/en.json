@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ssc_cgl_en_001",
+    "exam": "ssc_cgl",
+    "post": "Tax Assistant / Upper Division Clerk",
+    "language": "en",
+    "title": "India's Economic Growth",
+    "difficulty": "medium",
+    "category": "economy",
+    "text": "India has emerged as one of the fastest growing major economies in the world. Over the past decade, the country has witnessed significant structural reforms that have transformed its economic landscape. The government has undertaken several initiatives to boost manufacturing, improve infrastructure, and attract foreign investment. The introduction of the Goods and Services Tax brought uniformity to the indirect tax structure across the country. Digital India has revolutionised the way citizens interact with government services. Millions of people now have access to banking, insurance, and other financial services through mobile phones. The agricultural sector continues to be the backbone of the Indian economy, employing a large percentage of the rural population. Efforts are being made to modernise farming practices through the use of technology and better irrigation systems. India's demographic dividend, with a large working-age population, presents immense opportunities for economic development. The challenge lies in creating adequate employment opportunities for the youth and equipping them with the skills needed for the modern economy.",
+    "characterCount": 1023,
+    "estimatedWpm": 35,
+    "estimatedDuration": 15
+  },
+  {
+    "id": "ssc_cgl_en_002",
+    "exam": "ssc_cgl",
+    "post": "Tax Assistant / Upper Division Clerk",
+    "language": "en",
+    "title": "The Role of Technology in Governance",
+    "difficulty": "medium",
+    "category": "government",
+    "text": "The adoption of technology in governance has fundamentally changed the relationship between citizens and the state. E-governance initiatives have made it possible for people to access a wide range of government services from the comfort of their homes. Applications for certificates, licences, and permits can now be submitted online, reducing the need for physical visits to government offices. This has not only saved time and money for citizens but has also reduced corruption by minimising human interface in service delivery. The use of biometric identification has helped in eliminating duplicate beneficiaries from welfare schemes. Real-time monitoring of public projects through satellite imagery and digital dashboards has improved accountability in the use of public funds. Artificial intelligence is being used to analyse large datasets to identify tax evasion and financial fraud. Blockchain technology offers promise in areas such as land records, supply chain management, and voting systems. The government must invest in digital literacy programmes to ensure that all sections of society can benefit from these technological advances.",
+    "characterCount": 993,
+    "estimatedWpm": 35,
+    "estimatedDuration": 15
+  },
+  {
+    "id": "ssc_cgl_en_003",
+    "exam": "ssc_cgl",
+    "post": "Tax Assistant / Upper Division Clerk",
+    "language": "en",
+    "title": "Environmental Conservation",
+    "difficulty": "medium",
+    "category": "general",
+    "text": "Environmental conservation has become one of the most pressing challenges facing humanity in the twenty-first century. The rapid pace of industrialisation and urbanisation has led to widespread degradation of natural ecosystems. Forests, which are the lungs of the earth, are being cleared at an alarming rate to make way for agriculture, settlements, and industries. This deforestation not only destroys biodiversity but also contributes significantly to climate change by releasing stored carbon into the atmosphere. Water bodies are being polluted by industrial effluents and agricultural runoff, threatening the health of aquatic ecosystems and the communities that depend on them. Air pollution in major cities has reached dangerous levels, causing respiratory diseases and reducing life expectancy. Governments around the world are beginning to recognise the urgency of addressing these environmental challenges. International agreements such as the Paris Agreement aim to limit global temperature rise by reducing greenhouse gas emissions. Renewable energy sources like solar, wind, and hydroelectric power are being promoted as alternatives to fossil fuels. Individual actions such as reducing waste, conserving water, and choosing sustainable products also play an important role in protecting the environment.",
+    "characterCount": 1098,
+    "estimatedWpm": 35,
+    "estimatedDuration": 15
+  },
+  {
+    "id": "ssc_cgl_en_004",
+    "exam": "ssc_cgl",
+    "post": "Tax Assistant / Upper Division Clerk",
+    "language": "en",
+    "title": "Public Health and Sanitation",
+    "difficulty": "medium",
+    "category": "government",
+    "text": "Public health and sanitation are fundamental determinants of a nation's development. Access to clean drinking water, proper sanitation facilities, and basic healthcare services are essential for ensuring the well-being of the population. In many developing countries, a significant portion of the population still lacks access to these basic necessities. Waterborne diseases such as cholera, typhoid, and dysentery continue to claim thousands of lives each year, particularly among children. The Swachh Bharat Mission launched by the Indian government has made remarkable progress in improving sanitation across the country. Millions of toilets have been constructed in rural areas, and many communities have been declared open defecation free. However, the challenge of changing deeply ingrained behaviour and ensuring the sustained use of these facilities remains. The COVID-19 pandemic has highlighted the critical importance of robust public health systems. Countries with strong healthcare infrastructure were better equipped to respond to the crisis. Investment in public health not only saves lives but also has significant economic benefits by reducing the burden of disease on individuals and the healthcare system.",
+    "characterCount": 1017,
+    "estimatedWpm": 35,
+    "estimatedDuration": 15
+  },
+  {
+    "id": "ssc_cgl_en_005",
+    "exam": "ssc_cgl",
+    "post": "Tax Assistant / Upper Division Clerk",
+    "language": "en",
+    "title": "Education for All",
+    "difficulty": "medium",
+    "category": "general",
+    "text": "Education is widely recognised as the most powerful tool for human development and social transformation. Access to quality education enables individuals to develop their potential, participate fully in society, and contribute to economic growth. Despite significant progress in expanding access to education over the past few decades, millions of children around the world still remain out of school. Gender disparities persist in many regions, with girls facing greater barriers to education than boys. Poverty, distance to schools, lack of trained teachers, and inadequate infrastructure are among the major obstacles to universal education. The National Education Policy introduced in India in 2020 represents a comprehensive reform of the education system. It emphasises foundational literacy and numeracy, critical thinking, and vocational skills. The policy aims to increase the gross enrolment ratio in higher education and make education more accessible to disadvantaged groups. Technology has the potential to transform education by providing access to quality learning resources regardless of geographic location. Online platforms, digital textbooks, and interactive learning tools can help bridge the gap between urban and rural education. However, ensuring that all students have access to the necessary devices and internet connectivity remains a significant challenge that must be addressed urgently.",
+    "characterCount": 1128,
+    "estimatedWpm": 35,
+    "estimatedDuration": 15
+  }
+]

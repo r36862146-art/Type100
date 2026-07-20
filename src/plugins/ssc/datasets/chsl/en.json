@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ssc_chsl_en_001",
+    "exam": "ssc_chsl",
+    "post": "Lower Division Clerk / Junior Secretariat Assistant",
+    "language": "en",
+    "title": "Rights and Duties of Citizens",
+    "difficulty": "medium",
+    "category": "government",
+    "text": "The Constitution of India guarantees certain fundamental rights to all citizens. These rights include the right to equality, the right to freedom, the right against exploitation, the right to freedom of religion, cultural and educational rights, and the right to constitutional remedies. These rights are essential for the overall development of individuals and for the functioning of a healthy democracy. Along with rights come responsibilities. Citizens have a duty to follow the laws of the country, pay taxes honestly, respect the rights of others, and contribute to the welfare of society. Civic participation is a cornerstone of democracy. By voting in elections, engaging with local governance, and raising voices on important issues, citizens can shape the policies that affect their lives. Education plays a crucial role in creating informed and responsible citizens. Schools must teach young people not only academic subjects but also the values of tolerance, respect, and cooperation. A democracy functions well only when its citizens are actively engaged and committed to the common good.",
+    "characterCount": 945,
+    "estimatedWpm": 35,
+    "estimatedDuration": 10
+  },
+  {
+    "id": "ssc_chsl_en_002",
+    "exam": "ssc_chsl",
+    "post": "Lower Division Clerk / Junior Secretariat Assistant",
+    "language": "en",
+    "title": "Rural Development in India",
+    "difficulty": "medium",
+    "category": "government",
+    "text": "Rural development is central to India's overall development strategy. The majority of India's population still lives in rural areas and depends primarily on agriculture for their livelihood. Improving the living standards of rural communities is therefore essential for achieving inclusive growth and reducing inequality. The government has launched several flagship programmes aimed at rural development. The Mahatma Gandhi National Rural Employment Guarantee Act provides guaranteed wage employment to rural households, creating a social safety net for the most vulnerable. The Pradhan Mantri Gram Sadak Yojana has connected thousands of villages with all-weather roads, improving access to markets, schools, and hospitals. The Pradhan Mantri Awas Yojana has provided affordable housing to millions of rural families. Access to electricity has been extended to villages across the country through various schemes. However, challenges remain in ensuring the quality and sustainability of these interventions. Strengthening local governance institutions such as Panchayati Raj bodies is essential for ensuring that development programmes reach their intended beneficiaries.",
+    "characterCount": 1005,
+    "estimatedWpm": 35,
+    "estimatedDuration": 10
+  },
+  {
+    "id": "ssc_chsl_en_003",
+    "exam": "ssc_chsl",
+    "post": "Lower Division Clerk / Junior Secretariat Assistant",
+    "language": "en",
+    "title": "Science and Technology",
+    "difficulty": "medium",
+    "category": "general",
+    "text": "Science and technology have been the driving forces behind human progress throughout history. From the invention of the wheel to the development of the internet, technological innovations have repeatedly transformed the way people live and work. In the modern world, advancements in science and technology are occurring at an unprecedented pace. Artificial intelligence, machine learning, and robotics are automating tasks that were previously performed by human workers, raising important questions about the future of employment. Biotechnology is revolutionising medicine, agriculture, and environmental management. Gene editing technologies like CRISPR hold the promise of curing genetic diseases and developing crops that can withstand drought and pests. Space exploration is expanding human knowledge about the universe and has practical applications in communication, weather forecasting, and navigation. India has made significant strides in space technology through the achievements of the Indian Space Research Organisation. The Chandrayaan and Mangalyaan missions have demonstrated India's growing capabilities in space science. Investment in science education and research is essential for maintaining competitiveness in the global economy and addressing the complex challenges of the twenty-first century.",
+    "characterCount": 1067,
+    "estimatedWpm": 35,
+    "estimatedDuration": 10
+  },
+  {
+    "id": "ssc_chsl_en_004",
+    "exam": "ssc_chsl",
+    "post": "Lower Division Clerk / Junior Secretariat Assistant",
+    "language": "en",
+    "title": "Disaster Management",
+    "difficulty": "medium",
+    "category": "government",
+    "text": "India is one of the most disaster-prone countries in the world, vulnerable to a wide range of natural hazards including floods, droughts, earthquakes, cyclones, and landslides. Effective disaster management is therefore a critical priority for the government. The Disaster Management Act of 2005 established a comprehensive framework for disaster risk reduction and response. The National Disaster Management Authority is responsible for coordinating disaster management efforts at the national level. State and district level authorities manage disaster response at the local level. Early warning systems have been significantly improved in recent years, enabling timely evacuation of communities in the path of cyclones and floods. The National Disaster Response Force has become a highly trained and equipped force capable of conducting complex search and rescue operations. Community-based disaster preparedness programmes help local communities identify risks and develop emergency plans. The Sendai Framework for Disaster Risk Reduction, adopted by countries at the United Nations in 2015, provides a global blueprint for reducing disaster risk. India is committed to implementing this framework through investments in disaster risk reduction and building resilient infrastructure.",
+    "characterCount": 1055,
+    "estimatedWpm": 35,
+    "estimatedDuration": 10
+  },
+  {
+    "id": "ssc_chsl_en_005",
+    "exam": "ssc_chsl",
+    "post": "Lower Division Clerk / Junior Secretariat Assistant",
+    "language": "en",
+    "title": "Women Empowerment",
+    "difficulty": "medium",
+    "category": "general",
+    "text": "Women empowerment is essential for achieving gender equality and sustainable development. When women have equal access to education, economic opportunities, and political participation, entire societies benefit. Research consistently shows that investing in women and girls yields significant returns in terms of economic growth, improved health outcomes, and reduced poverty. Despite progress in recent decades, gender disparities persist in many areas of life. Women continue to face discrimination in the workplace, earn lower wages than men for the same work, and are underrepresented in political and corporate leadership. Violence against women remains a serious problem in many countries. The government of India has enacted several laws and launched programmes to promote women's rights and safety. The Beti Bachao Beti Padhao campaign aims to address the declining child sex ratio and promote girls' education. Reservation of seats for women in local government institutions has increased women's participation in decision-making. Self-help groups have empowered millions of rural women by providing them with access to credit and enabling them to start small businesses. Changing deep-rooted social attitudes that perpetuate gender inequality requires sustained effort from governments, civil society, and individuals.",
+    "characterCount": 1057,
+    "estimatedWpm": 35,
+    "estimatedDuration": 10
+  }
+]

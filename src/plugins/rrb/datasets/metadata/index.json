@@ -1,0 +1,13 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-07-19",
+  "datasets": {
+    "rrb_ntpc": {
+      "en": { "passageCount": 5, "avgWordCount": 200, "difficulty": "medium" },
+      "hi": { "passageCount": 5, "avgWordCount": 180, "difficulty": "medium" }
+    },
+    "rrb_typing": {
+      "en": { "passageCount": 5, "avgWordCount": 250, "difficulty": "medium" }
+    }
+  }
+}
