@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "preview": "npm run build && opennextjs-cloudflare preview",
@@ -43,6 +43,6 @@
     "prettier-plugin-tailwindcss": "^0.6.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.0.0",
-    "wrangler": "^4.86.0"
+    "wrangler": "^4.112.0"
   }
 }
