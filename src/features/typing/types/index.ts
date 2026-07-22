@@ -101,6 +101,10 @@ export interface TypingStatistics {
   wordsCompleted: number
   /** Time remaining in milliseconds (if applicable) */
   remainingTime: number
+  /** Monotonically increasing counter of all physical character keystrokes */
+  totalKeystrokes: number
+  /** Number of times backspace was pressed */
+  backspaces: number
 }
 
 /**

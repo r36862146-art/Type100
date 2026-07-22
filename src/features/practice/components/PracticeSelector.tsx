@@ -14,6 +14,12 @@ export interface PracticeSelectorProps {
   className?: string;
 }
 
+const MODE_LABELS: Record<string, string> = {
+  practice: "Practice",
+  learning: "Learn While You Type",
+  custom: "Custom",
+};
+
 export const PracticeSelector = React.memo(function PracticeSelector({
   currentMode,
   availableModes,
@@ -43,7 +49,7 @@ export const PracticeSelector = React.memo(function PracticeSelector({
               : "text-muted-foreground hover:bg-muted hover:text-foreground"
           )}
         >
-          {mode.charAt(0).toUpperCase() + mode.slice(1)}
+          {MODE_LABELS[mode] || (mode.charAt(0).toUpperCase() + mode.slice(1))}
         </button>
       ))}
     </div>

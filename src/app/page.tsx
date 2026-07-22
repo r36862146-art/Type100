@@ -9,7 +9,6 @@ import { ExamPractice } from "@/components/home/exam-practice"
 // Lazy load below-the-fold sections for optimal initial load performance
 const WhyType100 = dynamic(() => import("@/components/home/why-type100").then(mod => mod.WhyType100))
 const Features = dynamic(() => import("@/components/home/features").then(mod => mod.Features))
-const BuiltBy = dynamic(() => import("@/components/home/built-by").then(mod => mod.BuiltBy))
 const Faq = dynamic(() => import("@/components/home/faq").then(mod => mod.Faq))
 const Cta = dynamic(() => import("@/components/home/cta").then(mod => mod.Cta))
 
@@ -25,7 +24,6 @@ export default function HomePage() {
       {/* Below the fold */}
       <WhyType100 />
       <Features />
-      <BuiltBy />
       <Faq />
       <Cta />
     </div>

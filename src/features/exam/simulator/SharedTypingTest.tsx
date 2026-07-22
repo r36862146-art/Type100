@@ -3,6 +3,7 @@
 import React, { memo, useEffect, useRef } from "react";
 import type { SimulatorLiveStats } from "./useOfficialSimulator";
 import { cn } from "@/lib/utils";
+import { FinishTestButton } from "@/features/practice/components/FinishTestButton";
 
 function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -20,6 +21,7 @@ export interface SharedTypingTestProps {
   onTyping: (value: string) => void;
   onPause?: () => void;
   onResume?: () => void;
+  onSubmit?: () => void;
   className?: string;
 }
 
@@ -33,6 +35,7 @@ export const SharedTypingTest = memo(function SharedTypingTest({
   onTyping,
   onPause,
   onResume,
+  onSubmit,
   className,
 }: SharedTypingTestProps) {
   // Input ref to keep focus when typing
@@ -101,28 +104,33 @@ export const SharedTypingTest = memo(function SharedTypingTest({
           )}
         </div>
 
-        {/* Pause controls */}
-        {onPause && onResume && (
-          <div>
-            {isPaused ? (
-              <button
-                onClick={(e) => { e.stopPropagation(); onResume(); }}
-                className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
-                aria-label="Resume test"
-              >
-                Resume
-              </button>
-            ) : (
-              <button
-                onClick={(e) => { e.stopPropagation(); onPause(); }}
-                className="px-4 py-2 rounded-lg bg-muted text-foreground font-semibold text-sm hover:bg-muted/80 transition-colors"
-                aria-label="Pause test"
-              >
-                Pause
-              </button>
-            )}
-          </div>
-        )}
+        {/* Controls */}
+        <div className="flex items-center gap-2">
+          {onSubmit && (
+            <FinishTestButton onFinish={onSubmit} mode="exam" className="bg-destructive/10 text-destructive border-destructive/20 hover:bg-destructive hover:text-destructive-foreground hover:border-destructive shadow-none" />
+          )}
+          {onPause && onResume && (
+            <div>
+              {isPaused ? (
+                <button
+                  onClick={(e) => { e.stopPropagation(); onResume(); }}
+                  className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
+                  aria-label="Resume test"
+                >
+                  Resume
+                </button>
+              ) : (
+                <button
+                  onClick={(e) => { e.stopPropagation(); onPause(); }}
+                  className="px-4 py-2 rounded-lg bg-muted text-foreground font-semibold text-sm hover:bg-muted/80 transition-colors"
+                  aria-label="Pause test"
+                >
+                  Pause
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Typing Interface */}

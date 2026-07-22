@@ -4,13 +4,14 @@ import {
   ArrowRight, Terminal, Keyboard, Brain, Trophy, BarChart, 
   Zap, Target, GraduationCap, Briefcase, Code, PenTool, Database, Users, 
   Heart, Activity, Clock, LayoutDashboard, Rocket, Globe,
-  Github, Linkedin, Map, Route, CheckCircle2, User, BookOpen
+  Github, Linkedin, Map, Route, CheckCircle2, User, BookOpen, Mail, Landmark
 } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { FadeIn } from "@/components/ui/fade-in"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ContactCards } from "@/components/about/contact-cards"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -181,11 +182,9 @@ function WhySection() {
 function WhoIsForSection() {
   const audiences = [
     { icon: GraduationCap, title: "Students", desc: "Improve typing speed for assignments and coding." },
-    { icon: Briefcase, title: "Exam Aspirants", desc: "Prepare for government and competitive typing tests." },
-    { icon: Code, title: "Developers", desc: "Master symbols and syntax to code at the speed of thought." },
-    { icon: PenTool, title: "Content Writers", desc: "Write articles and blogs faster with fewer typos." },
-    { icon: Database, title: "Data Entry", desc: "Boost words-per-minute for professional roles." },
-    { icon: Users, title: "Everyone Else", desc: "Anyone looking to improve digital communication skills." }
+    { icon: Landmark, title: "Government Exam Aspirants", desc: "Prepare for government and competitive typing tests." },
+    { icon: Briefcase, title: "Professionals", desc: "Boost words-per-minute for professional roles and digital communication." },
+    { icon: Users, title: "Everyone Who Wants to Improve Their Typing Skills", desc: "Whether you're learning to type for the first time or aiming to become faster and more accurate, Type100 is designed to help anyone improve their typing skills through consistent practice." }
   ]
 
   return (
@@ -293,34 +292,19 @@ function CreatorSection() {
                 <h2 className="text-3xl font-extrabold mb-3">Built & Maintained by R. Ayush</h2>
                 <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
                   <span className="inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">Independent Developer</span>
-                  <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium">Technology Enthusiast</span>
-                  <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium">AI Enthusiast</span>
                 </div>
-                <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                  Type100 is an independent project created and actively maintained by R. Ayush. 
-                  Built with a passion for technology, education, and user-focused experiences, 
-                  Type100 is continuously improved through new features, performance enhancements, and community feedback. 
+                <p className="text-muted-foreground mb-4 text-lg leading-relaxed">
+                  Type100 is an independent project created and actively maintained by R. Ayush.
                   <br /><br />
-                  The vision is to build one of the most modern, accessible, and engaging typing platforms for learners worldwide.
+                  Built with a passion for technology, education, and user-focused experiences, Type100 continues to evolve through regular improvements, new features, and community feedback.
                 </p>
-                <div className="flex gap-4 justify-center md:justify-start">
-                  <Link 
-                    href="https://github.com/RAyush" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={cn(buttonVariants({ variant: "outline" }), "rounded-full hover:bg-foreground hover:text-background transition-colors")}
-                  >
-                    <Github className="mr-2 h-4 w-4" /> GitHub
-                  </Link>
-                  <Link 
-                    href="#" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={cn(buttonVariants({ variant: "outline" }), "rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors")}
-                  >
-                    <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-                  </Link>
+                <div className="mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">Vision:</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Build one of the most modern and accessible typing platforms for learners worldwide.
+                  </p>
                 </div>
+                <ContactCards />
               </div>
             </CardContent>
           </Card>
@@ -356,11 +340,15 @@ function RoadmapSection() {
           <div className="relative border-l-2 border-primary/20 pl-8 ml-4 space-y-12">
             {items.map((item, i) => (
               <FadeIn key={i} delay={0.1 * i} className="relative">
-                <span className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary ring-4 ring-background shadow-sm">
+                <span className="absolute -left-[41px] top-6 flex h-6 w-6 items-center justify-center rounded-full bg-primary ring-4 ring-background shadow-sm z-10">
                   <Route className="h-3 w-3 text-primary-foreground" />
                 </span>
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{item.desc}</p>
+                <Card className="bg-card/50 hover:bg-card/80 transition-colors shadow-sm">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </CardContent>
+                </Card>
               </FadeIn>
             ))}
           </div>

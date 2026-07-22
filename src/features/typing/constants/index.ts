@@ -37,4 +37,6 @@ export const INITIAL_TYPING_STATISTICS: TypingStatistics = {
   progress: 0,
   wordsCompleted: 0,
   remainingTime: 0,
+  totalKeystrokes: 0,
+  backspaces: 0,
 }

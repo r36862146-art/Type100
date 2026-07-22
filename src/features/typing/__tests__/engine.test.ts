@@ -27,7 +27,9 @@ const INITIAL_STATS = {
   cpm: 0,
   progress: 0,
   wordsCompleted: 0,
-  remainingTime: 0
+  remainingTime: 60000,
+  totalKeystrokes: 0,
+  backspaces: 0
 };
 
 test("validator: isValidKey filters correctly", () => {

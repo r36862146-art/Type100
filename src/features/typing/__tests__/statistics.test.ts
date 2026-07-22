@@ -14,9 +14,11 @@ const INITIAL_STATS = {
   rawWpm: 0,
   cpm: 0,
   accuracy: 100,
-  progress: 0,
   wordsCompleted: 0,
   remainingTime: 0,
+  totalKeystrokes: 0,
+  progress: 0,
+  backspaces: 0,
 };
 
 test("calculator: WPM handles division by zero safely", () => {

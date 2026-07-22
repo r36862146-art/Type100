@@ -6,9 +6,10 @@ import { TypingArea } from "@/features/typing/components/TypingArea";
 import { useTypingStore, useTypingWords, useTypingStatus, useTypingStats, useTypingActions } from "@/features/typing/store";
 import { ResultsCard } from "@/features/results/components/ResultsCard";
 import { parseTextToModel } from "@/features/typing/parser";
+import { FinishTestButton } from "@/features/practice/components/FinishTestButton";
 
 export function PracticeClient({ initialConfig }: { initialConfig?: any }) {
-  const { initSession, resetSession } = useTypingActions();
+  const { initSession, resetSession, finishSession } = useTypingActions();
   const words = useTypingWords();
   const status = useTypingStatus();
   const stats = useTypingStats();
@@ -22,16 +23,13 @@ export function PracticeClient({ initialConfig }: { initialConfig?: any }) {
       {(content, isLoading, error, config) => {
         if (!content || isLoading || error) return null;
 
-        // Effect to initialize session when content changes
-        // Using a tiny component or direct effect here is fine, but since we are in the render prop,
-        // we should initialize when content text changes.
-        return <PracticeSession content={content} words={words} status={status} stats={stats} initSession={initSession} onRestart={handleRestart} config={config} />;
+        return <PracticeSession content={content} words={words} status={status} stats={stats} initSession={initSession} finishSession={finishSession} onRestart={handleRestart} config={config} />;
       }}
     </PracticeLayout>
   );
 }
 
-function PracticeSession({ content, words, status, stats, initSession, onRestart, config }: any) {
+function PracticeSession({ content, words, status, stats, initSession, finishSession, onRestart, config }: any) {
   useEffect(() => {
     if (content?.text) {
       const isTimeMode = config.mode === "learning" || config.mode === "practice" || config.mode === "exam";
@@ -55,6 +53,18 @@ function PracticeSession({ content, words, status, stats, initSession, onRestart
   }, [content?.text, initSession, config, content?.metadata?.source]);
 
   if (status === "finished") {
+    let wrongWordsCount: number | undefined = undefined;
+    
+    if (config.difficulty === "medium" || config.difficulty === "hard") {
+      wrongWordsCount = words.reduce((acc: number, word: any) => {
+        if (stats.wordsCompleted > word.wordIndex) {
+          const hasError = word.characters.some((c: any) => c.state === "incorrect" || c.state === "missed" || c.state === "extra");
+          if (hasError) return acc + 1;
+        }
+        return acc;
+      }, 0);
+    }
+
     return (
       <div className="flex flex-col items-center w-full animate-in fade-in zoom-in-95 duration-300">
         <ResultsCard 
@@ -70,7 +80,9 @@ function PracticeSession({ content, words, status, stats, initSession, onRestart
             extraCharacters: stats.extra,
             missedCharacters: stats.missed,
             wordsCompleted: stats.wordsCompleted,
-            totalCharacters: stats.correct + stats.incorrect + stats.extra + stats.missed // Approximate
+            totalCharacters: stats.correct + stats.incorrect + stats.extra + stats.missed,
+            backspaces: stats.backspaces,
+            wrongWords: wrongWordsCount
           }}
           examId={config.mode === "exam" && config.examType === "mock" ? config.examId : undefined}
           onRepeatTest={onRestart}
@@ -88,5 +100,21 @@ function PracticeSession({ content, words, status, stats, initSession, onRestart
     return <TypingArea words={tempWords} />;
   }
 
-  return <TypingArea words={words} />;
+  return (
+    <div className="relative w-full">
+      <TypingArea words={words} />
+      
+      {/* Finish Test Button for timed tests */}
+      {(config.mode === "practice" || config.mode === "learning" || config.mode === "exam") && config.length && (
+        <>
+          <div className="absolute -top-14 right-0 hidden sm:block">
+            <FinishTestButton onFinish={finishSession} mode="practice" />
+          </div>
+          <div className="fixed bottom-6 left-0 right-0 flex justify-center sm:hidden z-50 animate-in slide-in-from-bottom-5">
+            <FinishTestButton onFinish={finishSession} mode="practice" className="shadow-2xl px-6 py-3 rounded-full" />
+          </div>
+        </>
+      )}
+    </div>
+  );
 }

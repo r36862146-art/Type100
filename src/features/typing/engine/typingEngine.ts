@@ -45,6 +45,10 @@ export const typingEngine = {
         const targetChar = targetWord.characters[newCursor.charIndex];
         
         events.push({ type: "BACKSPACE", payload: { erasedState: targetChar.state } });
+        
+        if (newCursor.wordIndex < cursor.wordIndex) {
+          events.push({ type: "WORD_INCOMPLETED", payload: { wordIndex: newCursor.wordIndex } });
+        }
 
         if (targetChar.state === "extra") {
           const updatedWord = { ...targetWord, characters: [...targetWord.characters] };
@@ -107,6 +111,13 @@ export const typingEngine = {
              events
           };
        } else {
+          if (config.mode === "time") {
+            events.push({ type: "TEXT_EXHAUSTED" });
+            return {
+               nextState: { ...session, status: newStatus, words: newWords },
+               events
+            };
+          }
           events.push({ type: "SESSION_COMPLETED" });
           return { nextState: { ...session, status: "finished", words: newWords }, events };
        }
@@ -160,7 +171,11 @@ export const typingEngine = {
       events.push({ type: "WORD_COMPLETED", payload: { wordIndex } });
     } else if (!newCursor) {
       events.push({ type: "WORD_COMPLETED", payload: { wordIndex } });
-      events.push({ type: "SESSION_COMPLETED" });
+      if (config.mode === "time") {
+        events.push({ type: "TEXT_EXHAUSTED" });
+      } else {
+        events.push({ type: "SESSION_COMPLETED" });
+      }
     }
 
     if (newCursor) {
@@ -173,6 +188,14 @@ export const typingEngine = {
           events
        };
     } else {
+       if (config.mode === "time") {
+         // Return the cursor at the end of the last word. The store will intercept TEXT_EXHAUSTED and append text,
+         // fixing the cursor immediately.
+         return {
+            nextState: { ...session, status: newStatus, words: newWords },
+            events
+         };
+       }
        return {
           nextState: { ...session, status: "finished", words: newWords },
           events

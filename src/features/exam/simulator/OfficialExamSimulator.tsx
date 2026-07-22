@@ -7,6 +7,7 @@ import type { SimulatorAdapter } from "./useOfficialSimulator";
 import { SharedInstructions } from "./SharedInstructions";
 import { SharedTypingTest } from "./SharedTypingTest";
 import { SharedCompletion } from "./SharedCompletion";
+import { FinishTestButton } from "@/features/practice/components/FinishTestButton";
 import { cn } from "@/lib/utils";
 
 export interface OfficialExamSimulatorProps<TPassage, TRules, TScore, TErrorBreakdown> {
@@ -169,22 +170,8 @@ export function OfficialExamSimulator<TPassage extends { text: string; id: strin
             onTyping={sim.handleTyping}
             onPause={adapter.canPause(adapter.rules) ? sim.pause : undefined}
             onResume={adapter.canPause(adapter.rules) ? sim.resume : undefined}
+            onSubmit={sim.submitSession}
           />
-        )}
-
-        {!adapter.isAutoSubmit(adapter.rules) && (
-          <div className="flex justify-end pt-2">
-            <button
-              onClick={sim.submitSession}
-              className={cn(
-                "px-6 py-2.5 min-h-[44px] rounded-xl bg-primary text-primary-foreground font-semibold text-sm",
-                "hover:bg-primary/90 transition-colors",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-              )}
-            >
-              Submit Test
-            </button>
-          </div>
         )}
       </div>
     );

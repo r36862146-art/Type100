@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
   { href: "/practice", label: "Practice" },
-  { href: "/practice?mode=learning", label: "Learning" },
   { href: "/games", label: "Games" },
   { href: "/exams", label: "Explore Exams" },
+  { href: "/about", label: "About" },
 ]
 
 export function Header() {

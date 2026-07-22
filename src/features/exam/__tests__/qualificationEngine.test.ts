@@ -32,6 +32,7 @@ function makeSnapshot(wpm: number, accuracy: number): ResultsSnapshot {
     missedCharacters: 0,
     wordsCompleted: wpm,
     totalCharacters: 205,
+    backspaces: 0,
   };
 }
 

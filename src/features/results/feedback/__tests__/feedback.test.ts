@@ -12,8 +12,9 @@ const createBaseSnapshot = (): ResultsSnapshot => ({
   incorrectCharacters: 10,
   extraCharacters: 2,
   missedCharacters: 1,
-  wordsCompleted: 60,
-  totalCharacters: 313,
+  wordsCompleted: 30,
+  totalCharacters: 150,
+  backspaces: 0
 });
 
 describe("Performance Feedback Engine", () => {

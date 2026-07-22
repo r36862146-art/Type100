@@ -23,4 +23,8 @@ export interface ResultsSnapshot {
   wordsCompleted: number;
   /** Total characters in the session */
   totalCharacters: number;
+  /** Number of times backspace was used */
+  backspaces: number;
+  /** Number of incorrectly typed words (only evaluated for med/hard) */
+  wrongWords?: number;
 }

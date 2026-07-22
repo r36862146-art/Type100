@@ -16,7 +16,16 @@ interface TypingStore extends TypingSession {
    * Hard resets the current session, wiping all statistics and returning to idle state,
    * but keeping the same underlying parsed text.
    */
+  /**
+   * Hard resets the current session, wiping all statistics and returning to idle state,
+   * but keeping the same underlying parsed text.
+   */
   resetSession: () => void
+
+  /**
+   * Manually finishes the current session (e.g. early exit).
+   */
+  finishSession: () => void
 
   /**
    * Processes a validated keystroke, updating the cursor, character states,
@@ -87,22 +96,73 @@ export const useTypingStore = create<TypingStore>()((set) => ({
     })
   },
 
+  finishSession: () => {
+    set((state) => {
+      if (state.status !== "running") return state;
+      return { status: "finished" };
+    });
+  },
+
   handleKeystroke: (key) => {
     set((state) => {
       const { nextState, events } = typingEngine.processKey(state, key);
       
       // Reduce the statistics sequentially based on the events emitted
       let newStats = nextState.stats;
+      let textExhausted = false;
       for (const event of events) {
         newStats = statistics.processEvent(newStats, event);
+        if (event.type === "TEXT_EXHAUSTED") textExhausted = true;
       }
       
+      const finalState = { ...nextState, stats: newStats };
+
+      if (textExhausted && state.config.mode === "time") {
+        const parsedWords = parseTextToModel(state.rawText);
+        const startIndex = state.words.length;
+        
+        // Append a space to the previous last word so the user can type a space between repetitions
+        if (startIndex > 0) {
+          const prevLastWordIndex = startIndex - 1;
+          const prevLastWord = finalState.words[prevLastWordIndex];
+          const newCharIndex = prevLastWord.characters.length;
+          finalState.words[prevLastWordIndex] = {
+            ...prevLastWord,
+            characters: [
+              ...prevLastWord.characters,
+              {
+                id: `w${prevLastWordIndex}_c${newCharIndex}`,
+                value: " ",
+                state: "idle",
+                wordIndex: prevLastWordIndex,
+                charIndex: newCharIndex,
+              }
+            ]
+          };
+        }
+
+        const appendedWords = parsedWords.map(w => ({
+          ...w,
+          wordIndex: w.wordIndex + startIndex,
+          characters: w.characters.map(c => ({
+            ...c,
+            wordIndex: c.wordIndex + startIndex,
+            id: `w${c.wordIndex + startIndex}_c${c.charIndex}`
+          }))
+        }));
+
+        finalState.words = [...finalState.words, ...appendedWords];
+        // Move cursor to the newly added space character of the previous word
+        finalState.cursor = { wordIndex: startIndex - 1, charIndex: finalState.words[startIndex - 1].characters.length - 1 };
+        // Ensure status stays running
+        finalState.status = "running";
+      }
       
       // Calculate overall progress based on completed words
-      const totalWords = state.words.length;
-      newStats.progress = calculator.calculateProgress(newStats.wordsCompleted, totalWords);
+      const totalWords = finalState.words.length;
+      finalState.stats.progress = calculator.calculateProgress(finalState.stats.wordsCompleted, totalWords);
       
-      return { ...nextState, stats: newStats };
+      return finalState;
     })
   },
 
@@ -114,8 +174,7 @@ export const useTypingStore = create<TypingStore>()((set) => ({
       
       newStatsWithTime.wpm = calculator.calculateWpm(newStatsWithTime.correct, newStatsWithTime.elapsedTime);
       
-      const totalKeystrokes = newStatsWithTime.correct + newStatsWithTime.incorrect + newStatsWithTime.extra;
-      newStatsWithTime.rawWpm = calculator.calculateRawWpm(totalKeystrokes, newStatsWithTime.elapsedTime);
+      newStatsWithTime.rawWpm = calculator.calculateRawWpm(newStatsWithTime.totalKeystrokes, newStatsWithTime.elapsedTime);
       
       newStatsWithTime.cpm = calculator.calculateCpm(newStatsWithTime.correct, newStatsWithTime.elapsedTime);
       
@@ -143,8 +202,9 @@ export const useTypingConfig = () => useTypingStore((state) => state.config);
 export const useTypingActions = () => {
   const initSession = useTypingStore((state) => state.initSession);
   const resetSession = useTypingStore((state) => state.resetSession);
+  const finishSession = useTypingStore((state) => state.finishSession);
   const handleKeystroke = useTypingStore((state) => state.handleKeystroke);
   const tick = useTypingStore((state) => state.tick);
   
-  return { initSession, resetSession, handleKeystroke, tick };
+  return { initSession, resetSession, finishSession, handleKeystroke, tick };
 };

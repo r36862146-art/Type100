@@ -16,9 +16,11 @@ export const statistics = {
     switch (event.type) {
       case "CHARACTER_CORRECT":
         newStats.correct++;
+        newStats.totalKeystrokes++;
         break;
       
       case "CHARACTER_INCORRECT":
+        newStats.totalKeystrokes++;
         // The typing engine sends expected: "" for extra characters typed beyond word bounds
         if (event.payload.expected === "") {
           newStats.extra++;
@@ -31,7 +33,12 @@ export const statistics = {
         newStats.wordsCompleted++;
         break;
 
+      case "WORD_INCOMPLETED":
+        if (newStats.wordsCompleted > 0) newStats.wordsCompleted--;
+        break;
+
       case "BACKSPACE":
+        newStats.backspaces++;
         // Backspacing removes the penalty/reward for the erased character to maintain accurate O(1) counts.
         if (event.payload && "erasedState" in event.payload) {
           const state = event.payload.erasedState;
@@ -48,8 +55,7 @@ export const statistics = {
     // but the derived stats will recalculate based on the current time snapshot.
     newStats.wpm = calculator.calculateWpm(newStats.correct, newStats.elapsedTime);
     
-    const totalKeystrokes = newStats.correct + newStats.incorrect + newStats.extra;
-    newStats.rawWpm = calculator.calculateRawWpm(totalKeystrokes, newStats.elapsedTime);
+    newStats.rawWpm = calculator.calculateRawWpm(newStats.totalKeystrokes, newStats.elapsedTime);
     
     newStats.cpm = calculator.calculateCpm(newStats.correct, newStats.elapsedTime);
     

@@ -2,6 +2,7 @@ import React from "react";
 import { PracticeConfig, PracticeLanguage } from "../types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Info } from "lucide-react";
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -137,6 +138,26 @@ export const PracticeToolbar = React.memo(function PracticeToolbar({
         >
           Edit Text
         </button>
+      )}
+
+      {(config.mode === "learning" || config.mode === "practice") && (
+        <div className="w-full flex justify-center mt-2 animate-in fade-in slide-in-from-top-2">
+          <div className="flex items-start gap-3 bg-muted/30 border border-border/50 rounded-lg p-3 max-w-md w-full text-left">
+            <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            <div className="flex flex-col gap-0.5">
+              <span className="text-sm font-semibold text-foreground">
+                {(config.difficulty || "medium") === "easy" && "Easy Mode"}
+                {(config.difficulty || "medium") === "medium" && "Medium Mode"}
+                {(config.difficulty || "medium") === "hard" && "Hard Mode"}
+              </span>
+              <span className="text-xs text-muted-foreground leading-relaxed">
+                {(config.difficulty || "medium") === "easy" && "Best for beginners. Accuracy is the main focus and mistakes are more forgiving."}
+                {(config.difficulty || "medium") === "medium" && "Balanced typing practice. Tracks wrong words and encourages both speed and accuracy."}
+                {(config.difficulty || "medium") === "hard" && "Strict typing mode. Wrong words are highlighted. Ideal for competitive practice."}
+              </span>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
