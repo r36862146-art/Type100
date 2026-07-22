@@ -98,7 +98,7 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 bg-black/50"
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-[2px]"
               onClick={() => setIsOpen(false)}
               aria-hidden="true"
             />
@@ -109,8 +109,8 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm border-l border-border/50 bg-background/95 backdrop-blur-xl p-6 shadow-2xl flex flex-col rounded-l-3xl"
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+              className="fixed inset-y-0 right-0 z-50 w-[85%] max-w-sm border-l border-border/50 bg-background/95 backdrop-blur-md p-6 shadow-2xl flex flex-col rounded-l-2xl"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"
@@ -133,11 +133,12 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setIsOpen(false)}
                     className={cn(
                       "flex items-center px-4 py-3 min-h-[48px] text-lg font-medium rounded-xl transition-all active:scale-[0.98]",
                       pathname === link.href 
-                        ? "bg-primary/10 text-primary font-bold" 
-                        : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                        ? "bg-primary text-primary-foreground font-semibold shadow-sm" 
+                        : "text-foreground/90 hover:bg-muted hover:text-foreground"
                     )}
                   >
                     {link.label}
@@ -146,7 +147,7 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
               </nav>
 
               <div className="flex items-center justify-between mt-auto pt-6 border-t border-border/50">
-                <span className="text-sm font-medium text-muted-foreground">Appearance</span>
+                <span className="text-sm font-medium text-foreground/90">Appearance</span>
                 <ThemeToggle />
               </div>
             </motion.div>
