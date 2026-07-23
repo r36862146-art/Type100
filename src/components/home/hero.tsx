@@ -17,7 +17,7 @@ export function Hero() {
         <FadeIn>
           <div className="mb-6 inline-flex items-center rounded-full border bg-muted/50 px-3 py-1 text-sm font-medium backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2" />
-            Introducing Type100 Version 1.0
+            Introducing Type100X Version 1.0
           </div>
         </FadeIn>
         

@@ -15,7 +15,7 @@ export function Footer() {
             </div>
           </div>
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Type100. All rights reserved.
+            &copy; {new Date().getFullYear()} Type100X. All rights reserved.
           </p>
         </div>
       </Container>

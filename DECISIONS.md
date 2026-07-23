@@ -2,7 +2,7 @@
 
 Project Name
 
-Type100
+Type100X
 
 Languages
 

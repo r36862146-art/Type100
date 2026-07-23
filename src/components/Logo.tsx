@@ -7,7 +7,7 @@ export function Logo({ className }: { className?: string }) {
       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground text-background font-bold shadow-sm">
         T
       </div>
-      <span className="font-sans text-xl font-bold tracking-tight text-foreground">Type100</span>
+      <span className="font-sans text-xl font-bold tracking-tight text-foreground">Type100X</span>
     </Link>
   )
 }

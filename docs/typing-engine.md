@@ -1,6 +1,6 @@
-# Type100 Typing Engine
+# Type100X Typing Engine
 
-The Type100 Engine is a high-performance, completely deterministic, and decoupled system for driving the typing test experience. It is separated into three distinct layers: Parser, Engine (Business Logic), and Store (State).
+The Type100X Engine is a high-performance, completely deterministic, and decoupled system for driving the typing test experience. It is separated into three distinct layers: Parser, Engine (Business Logic), and Store (State).
 
 ## 1. Architecture
 

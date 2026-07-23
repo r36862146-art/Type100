@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { createPortal } from "react-dom"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -17,8 +18,13 @@ interface MobileMenuProps {
 
 export function MobileMenu({ navLinks }: MobileMenuProps) {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false)
   const pathname = usePathname()
   const menuRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Close menu when route changes
   React.useEffect(() => {
@@ -77,6 +83,74 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
     }
   }, [isOpen])
 
+  const menuContent = (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Dark Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Slide-out Menu Panel */}
+          <motion.div
+            ref={menuRef}
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+            className="fixed inset-y-0 left-0 z-50 w-[85%] max-w-[320px] border-r border-border/50 bg-background/95 backdrop-blur-md p-6 shadow-2xl flex flex-col rounded-r-2xl overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+          >
+            <div className="flex items-center justify-between mb-8 shrink-0">
+              <Logo />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full hover:bg-muted/80"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close mobile menu"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+
+            <nav className="flex flex-col gap-2 flex-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "flex items-center px-4 py-3 min-h-[48px] text-lg font-medium rounded-xl transition-all active:scale-[0.98]",
+                    pathname === link.href 
+                      ? "bg-primary text-primary-foreground font-semibold shadow-sm" 
+                      : "text-foreground/90 hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex items-center justify-between mt-auto pt-6 border-t border-border/50 shrink-0">
+              <span className="text-sm font-medium text-foreground/90">Appearance</span>
+              <ThemeToggle />
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  )
+
   return (
     <div className="md:hidden">
       <Button
@@ -89,71 +163,7 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
         <Menu className="h-5 w-5" />
       </Button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Dark Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-[2px]"
-              onClick={() => setIsOpen(false)}
-              aria-hidden="true"
-            />
-            
-            {/* Slide-out Menu Panel */}
-            <motion.div
-              ref={menuRef}
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed inset-y-0 right-0 z-50 w-[85%] max-w-sm border-l border-border/50 bg-background/95 backdrop-blur-md p-6 shadow-2xl flex flex-col rounded-l-2xl"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Mobile navigation"
-            >
-              <div className="flex items-center justify-between mb-8">
-                <Logo />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full hover:bg-muted/80"
-                  onClick={() => setIsOpen(false)}
-                  aria-label="Close mobile menu"
-                >
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-
-              <nav className="flex flex-col gap-2 flex-1">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "flex items-center px-4 py-3 min-h-[48px] text-lg font-medium rounded-xl transition-all active:scale-[0.98]",
-                      pathname === link.href 
-                        ? "bg-primary text-primary-foreground font-semibold shadow-sm" 
-                        : "text-foreground/90 hover:bg-muted hover:text-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="flex items-center justify-between mt-auto pt-6 border-t border-border/50">
-                <span className="text-sm font-medium text-foreground/90">Appearance</span>
-                <ThemeToggle />
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {mounted ? createPortal(menuContent, document.body) : null}
     </div>
   )
 }

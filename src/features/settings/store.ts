@@ -49,9 +49,17 @@ export const useSettings = create<SettingsState>()(
       resetSettings: () => set(DEFAULT_STATE),
     }),
     {
-      name: "type100-global-settings",
+      name: "type100x-global-settings",
       storage: createJSONStorage(() => {
         if (typeof window !== "undefined") {
+          // Migrate old key to new key
+          const oldKey = "type100-global-settings";
+          const newKey = "type100x-global-settings";
+          const oldData = localStorage.getItem(oldKey);
+          if (oldData && !localStorage.getItem(newKey)) {
+            localStorage.setItem(newKey, oldData);
+            localStorage.removeItem(oldKey);
+          }
           return localStorage;
         }
         return {

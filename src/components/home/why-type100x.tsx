@@ -22,13 +22,13 @@ const REASONS = [
   },
 ]
 
-export function WhyType100() {
+export function WhyType100X() {
   return (
     <section className="py-24">
       <Container>
         <div className="mb-16 text-center max-w-2xl mx-auto">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Why choose Type100?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Why choose Type100X?</h2>
             <p className="text-lg text-muted-foreground">
               We stripped away the clutter and unnecessary gamification. What remains is a fast and focused typing experience on the web.
             </p>

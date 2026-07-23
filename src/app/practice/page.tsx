@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import { PracticeClient } from "./PracticeClient";
 
 export const metadata: Metadata = {
-  title: "Practice Typing | Type100",
+  title: "Practice Typing | Type100X",
   description: "Improve your typing speed and accuracy with English and Hindi modes. Practice words, paragraphs, quotes, numbers, and custom text.",
   openGraph: {
-    title: "Practice Typing | Type100",
+    title: "Practice Typing | Type100X",
     description: "Improve your typing speed and accuracy with English and Hindi modes.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Practice Typing | Type100",
+    title: "Practice Typing | Type100X",
     description: "Improve your typing speed and accuracy with English and Hindi modes.",
   },
 };

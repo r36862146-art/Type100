@@ -3,7 +3,7 @@ import { TypeRaceGame } from "@/features/games/typerace/TypeRaceGame";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Type Race | Type100 Games",
+  title: "Type Race | Type100X Games",
   description: "Race against opponents by typing as fast and accurately as possible.",
 };
 

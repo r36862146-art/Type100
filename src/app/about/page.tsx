@@ -15,17 +15,17 @@ import { ContactCards } from "@/components/about/contact-cards"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
-  title: "About Type100 | The Modern Typing Platform",
-  description: "Type100 is a modern typing platform built for learning, productivity, and competitive exam preparation. Improve your typing speed and accuracy today.",
+  title: "About Type100X | The Modern Typing Platform",
+  description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation. Improve your typing speed and accuracy today.",
   openGraph: {
-    title: "About Type100 | The Modern Typing Platform",
-    description: "Type100 is a modern typing platform built for learning, productivity, and competitive exam preparation.",
+    title: "About Type100X | The Modern Typing Platform",
+    description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Type100",
-    description: "Type100 is a modern typing platform built for learning, productivity, and competitive exam preparation.",
+    title: "About Type100X",
+    description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation.",
   }
 }
 
@@ -55,7 +55,7 @@ function HeroSection() {
         <FadeIn>
           <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2" />
-            About Type100
+            About Type100X
           </div>
         </FadeIn>
         
@@ -68,7 +68,7 @@ function HeroSection() {
         
         <FadeIn delay={0.2}>
           <p className="max-w-2xl text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed">
-            Type100 is a modern typing platform built for learning, productivity, and competitive exam preparation. Master the keyboard and type at the speed of thought.
+            Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation. Master the keyboard and type at the speed of thought.
           </p>
         </FadeIn>
       </Container>
@@ -90,7 +90,7 @@ function WhatIsSection() {
       <Container>
         <div className="text-center mb-16">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">What is Type100?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">What is Type100X?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               More than just a typing test. It's a comprehensive platform that combines everything you need in one unified experience.
             </p>
@@ -125,9 +125,9 @@ function WhySection() {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
             <FadeIn>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Why Type100?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Why Type100X?</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Traditional typing websites are often outdated, cluttered with ads, or lack meaningful progression. We built Type100 to solve these exact problems with a focus on modern user experience.
+                Traditional typing websites are often outdated, cluttered with ads, or lack meaningful progression. We built Type100X to solve these exact problems with a focus on modern user experience.
               </p>
               <ul className="space-y-5">
                 {[
@@ -184,7 +184,7 @@ function WhoIsForSection() {
     { icon: GraduationCap, title: "Students", desc: "Improve typing speed for assignments and coding." },
     { icon: Landmark, title: "Government Exam Aspirants", desc: "Prepare for government and competitive typing tests." },
     { icon: Briefcase, title: "Professionals", desc: "Boost words-per-minute for professional roles and digital communication." },
-    { icon: Users, title: "Everyone Who Wants to Improve Their Typing Skills", desc: "Whether you're learning to type for the first time or aiming to become faster and more accurate, Type100 is designed to help anyone improve their typing skills through consistent practice." }
+    { icon: Users, title: "Everyone Who Wants to Improve Their Typing Skills", desc: "Whether you're learning to type for the first time or aiming to become faster and more accurate, Type100X is designed to help anyone improve their typing skills through consistent practice." }
   ]
 
   return (
@@ -192,7 +192,7 @@ function WhoIsForSection() {
       <Container>
         <div className="text-center mb-16">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Who is Type100 For?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Who is Type100X For?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Built for anyone who uses a keyboard. Tailored experiences for your specific goals.
             </p>
@@ -294,9 +294,9 @@ function CreatorSection() {
                   <span className="inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">Independent Developer</span>
                 </div>
                 <p className="text-muted-foreground mb-4 text-lg leading-relaxed">
-                  Type100 is an independent project created and actively maintained by R. Ayush.
+                  Type100X is an independent project created and actively maintained by R. Ayush.
                   <br /><br />
-                  Built with a passion for technology, education, and user-focused experiences, Type100 continues to evolve through regular improvements, new features, and community feedback.
+                  Built with a passion for technology, education, and user-focused experiences, Type100X continues to evolve through regular improvements, new features, and community feedback.
                 </p>
                 <div className="mb-2">
                   <h3 className="font-semibold text-foreground mb-2">Vision:</h3>
@@ -332,7 +332,7 @@ function RoadmapSection() {
             </div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">The Road Ahead</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We are constantly working to make Type100 better. Here's a glimpse of what's coming next.
+              We are constantly working to make Type100X better. Here's a glimpse of what's coming next.
             </p>
           </FadeIn>
         </div>

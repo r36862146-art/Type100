@@ -77,7 +77,7 @@ export function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: (
           {query.trim() === "" ? (
             <div className="p-8 text-center text-muted-foreground text-sm">
               <Command className="w-8 h-8 mx-auto mb-3 opacity-20" />
-              <p>Type to search across the Type100 ecosystem.</p>
+              <p>Type to search across the Type100X ecosystem.</p>
             </div>
           ) : filteredExams.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground text-sm">

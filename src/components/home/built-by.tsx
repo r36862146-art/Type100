@@ -38,10 +38,10 @@ export function BuiltBy() {
                   </h2>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
-                      Type100 is an independent typing practice platform built and actively maintained by <strong className="font-semibold text-foreground">R Ayush</strong>.
+                      Type100X is an independent typing practice platform built and actively maintained by <strong className="font-semibold text-foreground">R Ayush</strong>.
                     </p>
                     <p>
-                      The vision behind Type100 is to create a modern, fast, and accessible platform where anyone can improve their typing skills through practice, educational content, engaging games, and realistic government exam preparation.
+                      The vision behind Type100X is to create a modern, fast, and accessible platform where anyone can improve their typing skills through practice, educational content, engaging games, and realistic government exam preparation.
                     </p>
                     <p>
                       Every feature is designed with a focus on simplicity, performance, and continuous improvement.

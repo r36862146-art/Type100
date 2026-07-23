@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 /**
- * The premium Type100 logo component.
+ * The premium Type100X logo component.
  */
 const Logo = React.forwardRef<HTMLDivElement, LogoProps>(
   ({ className, ...props }, ref) => {
@@ -20,7 +20,7 @@ const Logo = React.forwardRef<HTMLDivElement, LogoProps>(
         <span className="bg-primary text-primary-foreground rounded px-1.5 py-0.5 shadow-sm">
           Type
         </span>
-        <span>100</span>
+        <span>100X</span>
       </div>
     )
   }

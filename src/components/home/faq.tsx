@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 
 const FAQS = [
   {
-    question: "Is Type100 completely free?",
+    question: "Is Type100X completely free?",
     answer: "Yes, the core typing practice and standard tests are completely free. We may introduce premium analytics in the future, but the essential experience will remain free.",
   },
   {
@@ -22,7 +22,7 @@ const FAQS = [
     answer: "We use the standard industry formula: (Characters Typed / 5) / Time in Minutes. Errors are subtracted from the gross WPM to provide your net WPM.",
   },
   {
-    question: "Can I use Type100 on my phone?",
+    question: "Can I use Type100X on my phone?",
     answer: "While the site is responsive and accessible on mobile devices, typing tests are best experienced on a physical desktop or laptop keyboard.",
   },
 ]

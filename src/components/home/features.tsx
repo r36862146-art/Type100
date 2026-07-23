@@ -25,7 +25,7 @@ export function Features() {
                 Nothing you don't.
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Type100 is engineered to provide a comprehensive toolkit for serious typists without compromising on speed or design. 
+                Type100X is engineered to provide a comprehensive toolkit for serious typists without compromising on speed or design. 
               </p>
             </FadeIn>
           </div>

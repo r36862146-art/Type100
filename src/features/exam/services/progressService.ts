@@ -94,7 +94,15 @@ export function getProgress(
   examId: ExamId,
   storage: StorageStrategy = localStorageStrategy
 ): ExamProgress {
-  const raw = storage.get(storageKey(examId));
+  const oldKey = `type100_exam_progress_${examId}`;
+  const newKey = storageKey(examId);
+  const oldData = storage.get(oldKey);
+  if (oldData && !storage.get(newKey)) {
+    storage.set(newKey, oldData);
+    storage.remove(oldKey);
+  }
+
+  const raw = storage.get(newKey);
   if (!raw) return emptyProgress(examId);
 
   try {

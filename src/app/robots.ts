@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://type100.com/sitemap.xml',
+    sitemap: 'https://type100x.com/sitemap.xml',
   };
 }

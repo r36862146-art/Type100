@@ -5,12 +5,18 @@ export interface SavedCustomText {
   lastUsedAt: number;
 }
 
-const STORAGE_KEY = 'type100_recent_custom_texts';
+const STORAGE_KEY = 'type100x_recent_custom_texts';
 const MAX_RECENT_TEXTS = 10;
 
 export function getRecentTexts(): SavedCustomText[] {
   if (typeof window === 'undefined') return [];
   try {
+    const oldKey = 'type100_recent_custom_texts';
+    const oldData = localStorage.getItem(oldKey);
+    if (oldData && !localStorage.getItem(STORAGE_KEY)) {
+      localStorage.setItem(STORAGE_KEY, oldData);
+      localStorage.removeItem(oldKey);
+    }
     const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : [];
   } catch (error) {

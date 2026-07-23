@@ -44,6 +44,12 @@ import {
 function readSettings(): ExamSettings {
   if (typeof window === "undefined") return DEFAULT_EXAM_SETTINGS;
   try {
+    const oldKey = "type100_exam_settings";
+    const oldData = localStorage.getItem(oldKey);
+    if (oldData && !localStorage.getItem(EXAM_SETTINGS_STORAGE_KEY)) {
+      localStorage.setItem(EXAM_SETTINGS_STORAGE_KEY, oldData);
+      localStorage.removeItem(oldKey);
+    }
     const raw = localStorage.getItem(EXAM_SETTINGS_STORAGE_KEY);
     if (!raw) return DEFAULT_EXAM_SETTINGS;
     return JSON.parse(raw) as ExamSettings;

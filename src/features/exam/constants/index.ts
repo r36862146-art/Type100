@@ -107,5 +107,5 @@ export const DEFAULT_EXAM_SETTINGS: ExamSettings = {
 // Storage keys
 // ----------------------------------------------------------------
 
-export const EXAM_SETTINGS_STORAGE_KEY = "type100_exam_settings";
-export const EXAM_PROGRESS_STORAGE_KEY_PREFIX = "type100_exam_progress_";
+export const EXAM_SETTINGS_STORAGE_KEY = "type100x_exam_settings";
+export const EXAM_PROGRESS_STORAGE_KEY_PREFIX = "type100x_exam_progress_";
