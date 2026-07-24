@@ -1,20 +1,12 @@
-import { Metadata } from "next";
 import { PracticeClient } from "./PracticeClient";
+import { constructMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Practice Typing | Type100X",
-  description: "Improve your typing speed and accuracy with English and Hindi modes. Practice words, paragraphs, quotes, numbers, and custom text.",
-  openGraph: {
-    title: "Practice Typing | Type100X",
-    description: "Improve your typing speed and accuracy with English and Hindi modes.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Practice Typing | Type100X",
-    description: "Improve your typing speed and accuracy with English and Hindi modes.",
-  },
-};
+export const metadata = constructMetadata({
+  title: "1 Minute Typing Test & Practice",
+  description: "Take a 1 minute typing test to check your WPM and accuracy. Practice for speed and consistency.",
+  canonical: "/practice",
+});
 
 export default async function PracticePage({
   searchParams,
@@ -33,6 +25,18 @@ export default async function PracticePage({
   
   return (
     <div className="w-full h-full flex flex-col items-center pt-8 pb-16">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Type100X Typing Practice",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }} />
       <PracticeClient initialConfig={initialConfig} />
     </div>
   );

@@ -10,6 +10,28 @@ import {
   Languages,
   BookOpen
 } from "lucide-react";
+import { constructMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { Metadata } from "next";
+
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ org: string; examId: string }> 
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const exam = examProfiles.find(e => e.id === resolvedParams.examId);
+  
+  if (!exam) return {};
+
+  const orgSlug = exam.organization.toLowerCase().replace(/\s+/g, '-');
+  return constructMetadata({
+    title: `${exam.name} Typing Practice`,
+    description: exam.about,
+    canonical: `/exams/${orgSlug}/${exam.id}`,
+  });
+}
 
 export default async function ExamDetailPage({ 
   params 
@@ -23,8 +45,24 @@ export default async function ExamDetailPage({
     notFound();
   }
 
+  const orgSlug = exam.organization.toLowerCase().replace(/\s+/g, '-');
+
   return (
     <div className="container max-w-5xl mx-auto px-4 py-8 animate-in fade-in duration-500">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": exam.name,
+        "description": exam.about,
+        "provider": {
+          "@type": "Organization",
+          "name": exam.organization
+        }
+      }} />
+      <Breadcrumbs items={[
+        { label: "Exams", href: "/exams" },
+        { label: exam.name, href: `/exams/${orgSlug}/${exam.id}` }
+      ]} />
       <Link 
         href="/exams" 
         className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8"

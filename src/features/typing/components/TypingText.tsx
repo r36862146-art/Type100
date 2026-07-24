@@ -9,7 +9,7 @@ interface TypingTextProps {
 export const TypingText = React.memo(({ words }: TypingTextProps) => {
   return (
     <div 
-      className="w-full text-left leading-relaxed select-none break-words"
+      className="w-full text-left leading-[2.5] select-none break-words flex flex-wrap content-start"
       aria-hidden="true" // Hidden from screen readers to prevent them from reading individual characters loudly
     >
       {words.map((word) => (

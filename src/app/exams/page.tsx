@@ -2,6 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { examProfiles, ExamCategory } from "@/data/examProfiles";
 import { ChevronRight, GraduationCap, Building, Train, Globe } from "lucide-react";
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
+  title: "Typing Practice for Government Exams (SSC, RRB)",
+  description: "Your complete educational hub for government typing skill tests. Practice with official-style passages for SSC, RRB, and more.",
+  canonical: "/exams",
+});
 
 export default function ExamsPage() {
   // Group exams by organization

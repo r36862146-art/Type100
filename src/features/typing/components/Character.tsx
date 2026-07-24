@@ -25,13 +25,13 @@ export const Character = React.memo(({ char }: CharacterProps) => {
     case "incorrect":
       // For spaces that are typed incorrectly, we need a background color 
       // since the text color won't be visible.
-      stateClasses = value === " " ? "bg-destructive/30" : "text-destructive";
+      stateClasses = value === " " ? "bg-destructive/20" : "text-destructive/90";
       break;
     case "extra":
       stateClasses = "text-destructive/70";
       break;
     case "missed":
-      stateClasses = "text-muted-foreground/60 border-b-2 border-destructive";
+      stateClasses = "text-muted-foreground/50 border-b-2 border-destructive/50";
       break;
   }
 

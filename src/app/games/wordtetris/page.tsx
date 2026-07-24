@@ -1,11 +1,12 @@
 import React from "react";
 import { WordTetrisGame } from "@/features/games/wordtetris/WordTetrisGame";
-import { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Word Tetris | Type100X Games",
-  description: "Survive as long as possible by typing the falling words before they reach the bottom.",
-};
+export const metadata = constructMetadata({
+  title: "Word Tetris - Typing Game",
+  description: "Type the falling words before they hit the ground! A fast-paced typing game to improve your reflexes.",
+  canonical: "/games/wordtetris",
+});
 
 export default function WordTetrisPage() {
   return <WordTetrisGame />;

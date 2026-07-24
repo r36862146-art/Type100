@@ -12,6 +12,13 @@ import {
   Swords,
   Lock
 } from "lucide-react";
+import { constructMetadata } from "@/lib/seo"
+
+export const metadata = constructMetadata({
+  title: "Typing Games - Improve Speed with Fun",
+  description: "Play SpaceType, TypeRace, and WordTetris to improve your typing speed and accuracy through fun interactive games.",
+  canonical: "/games",
+});
 import { cn } from "@/lib/utils";
 
 import { GAMES_CONFIG } from "@/config/games";

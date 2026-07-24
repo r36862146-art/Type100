@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { constructMetadata } from "@/lib/seo";
 import Link from "next/link"
 import { 
   ArrowRight, Terminal, Keyboard, Brain, Trophy, BarChart, 
@@ -14,20 +15,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ContactCards } from "@/components/about/contact-cards"
 import { cn } from "@/lib/utils"
 
-export const metadata: Metadata = {
-  title: "About Type100X | The Modern Typing Platform",
+export const metadata = constructMetadata({
+  title: "About",
   description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation. Improve your typing speed and accuracy today.",
-  openGraph: {
-    title: "About Type100X | The Modern Typing Platform",
-    description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Type100X",
-    description: "Type100X is a modern typing platform built for learning, productivity, and competitive exam preparation.",
-  }
-}
+  canonical: "/about",
+});
 
 export default function AboutPage() {
   return (

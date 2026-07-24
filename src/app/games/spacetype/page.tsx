@@ -1,11 +1,12 @@
 import React from "react";
 import { SpaceTypeGame } from "@/features/games/spacetype/SpaceTypeGame";
-import { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "SpaceType | Type100X Games",
-  description: "Defend your ship by typing the falling words in this classic space shooter.",
-};
+export const metadata = constructMetadata({
+  title: "SpaceType - Typing Game",
+  description: "Defend your ship by typing the words attached to incoming asteroids. An intense typing game for speed and accuracy.",
+  canonical: "/games/spacetype",
+});
 
 export default function SpaceTypePage() {
   return <SpaceTypeGame />;

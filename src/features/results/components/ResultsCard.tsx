@@ -7,6 +7,7 @@ import { SessionActions, type SessionActionsProps } from "./SessionActions";
 import { ExamReadinessReport } from "./ExamReadinessReport";
 import { generateInsights } from "../utils/generateInsights";
 import { ResultsExplanation } from "./ResultsExplanation";
+import { ShareButton } from "./ShareButton";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
@@ -52,7 +53,7 @@ export const ResultsCard = React.memo(function ResultsCard({
         const insight = generateInsights(snapshot);
         return (
           <div className={cn(
-            "flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-xl border shadow-sm",
+            "flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-xl border shadow-premium-sm backdrop-blur-sm transition-all duration-300 hover:shadow-premium",
             insight.type === "success" && "bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-400",
             insight.type === "warning" && "bg-yellow-500/10 border-yellow-500/20 text-yellow-700 dark:text-yellow-400",
             insight.type === "info" && "bg-blue-500/10 border-blue-500/20 text-blue-700 dark:text-blue-400"
@@ -133,11 +134,12 @@ export const ResultsCard = React.memo(function ResultsCard({
 
       <ResultsExplanation />
 
-      <div className="mt-8 border-t border-border/50 pt-8">
+      <div className="mt-8 border-t border-border/50 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <SessionActions
           onRepeatTest={onRepeatTest}
           onNextTest={onNextTest}
         />
+        <ShareButton snapshot={snapshot} />
       </div>
     </div>
   );

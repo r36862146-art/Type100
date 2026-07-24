@@ -52,6 +52,23 @@ function PracticeSession({ content, words, status, stats, initSession, finishSes
     }
   }, [content?.text, initSession, config, content?.metadata?.source]);
 
+  // Save session to IDB when finished
+  useEffect(() => {
+    if (status === "finished") {
+      import("@/lib/local-db/db").then(({ localDb }) => {
+        localDb.saveSession({
+          id: crypto.randomUUID(),
+          user_id: "guest",
+          wpm: stats.wpm,
+          accuracy: stats.accuracy,
+          duration: Math.floor(stats.elapsedTime / 1000),
+          mode: config.mode || "practice",
+          timestamp: new Date().toISOString()
+        }).catch(console.error);
+      });
+    }
+  }, [status, stats.wpm, stats.accuracy, stats.elapsedTime, config.mode]);
+
   if (status === "finished") {
     let wrongWordsCount: number | undefined = undefined;
     
