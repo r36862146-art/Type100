@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 import { Viewport } from "next";
 import { constructMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://type100x.com"),
@@ -42,6 +43,7 @@ export default function RootLayout({
               "query-input": "required name=search_term_string"
             }
           }} />
+          <GoogleAnalytics gaId="G-L8EH506XGP" />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
